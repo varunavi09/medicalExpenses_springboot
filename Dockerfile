@@ -4,8 +4,8 @@ WORKDIR /app
 
 COPY backend/expense/expense /app
 
-RUN chmod +x mvnw
+RUN apt-get update && apt-get install -y maven
 
-RUN ./mvnw clean install
+RUN mvn clean install
 
-CMD ["./mvnw", "spring-boot:run"]
+CMD ["mvn", "spring-boot:run"]
