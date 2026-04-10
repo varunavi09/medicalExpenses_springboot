@@ -2,10 +2,6 @@ FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-COPY backend/expense/expense /app
+COPY backend/expense/expense/target/expense-0.0.1-SNAPSHOT.jar app.jar
 
-RUN chmod +x mvnw
-
-RUN ./mvnw clean install -DskipTests
-
-CMD ["java", "-jar", "target/expense-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "app.jar"]
