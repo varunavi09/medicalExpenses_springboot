@@ -4,8 +4,8 @@ WORKDIR /app
 
 COPY backend/expense/expense /app
 
-RUN apt-get update && apt-get install -y maven
+RUN chmod +x mvnw
 
-RUN mvn clean install
+RUN ./mvnw clean install -DskipTests
 
-CMD ["mvn", "spring-boot:run"]
+CMD ["java", "-jar", "target/expense-0.0.1-SNAPSHOT.jar"]
